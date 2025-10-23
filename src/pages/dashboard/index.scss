@@ -1,0 +1,27 @@
+.dashboard-card {
+    // 进一步减少卡片顶部内边距，使内容更向上移动
+    padding-top: 0;
+    padding-bottom: 25px;
+    
+    .area {
+        // 增加负上边距，使内容进一步上移
+        margin-top: -10px;
+        
+        h2 {
+            // 确保标题没有上边距
+            margin-top: 10px;
+        }
+        
+        p {
+            color: #666;
+            line-height: 25px;
+            // 进一步减少段落上边距
+            margin-top: 3px;
+        }
+    }
+
+    .icon {
+        font-size: 60px;
+        margin-right: 15px;
+    }
+}

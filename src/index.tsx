@@ -1,19 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
 import App from './App';
+import './mock';
 import reportWebVitals from './reportWebVitals';
+// 解决antd5在react19中使用的兼容性问题
+import '@ant-design/v5-patch-for-react-19'
+import { Provider } from 'react-redux';
+import { store } from './store';
+
+
 
 const root = ReactDOM.createRoot(
+  // as HTMLElement是类型断言，告诉TypeScript，document.getElementById('root')返回的元素是HTMLElement类型
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
+  // </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// 如果你想开始测量应用的性能，请传递一个函数来记录结果（例如：reportWebVitals(console.log)）
+// 或者将结果发送到分析端点。了解更多信息：https://bit.ly/CRA-vitals
 reportWebVitals();

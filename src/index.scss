@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  // box-sizing: border-box; // 添加盒模型设置
+}
+
+html,
+body,
+#root {
+  height: 100%; // 确保根元素高度为100%
+  width: 100%; // 确保根元素宽度为100%
+}
+
+li {
+  list-style: none;
+}
+
+.mt {
+  margin-top: 15px;
+}
+
+.mb {
+  margin-bottom: 15px;
+}
+
+.ml {
+  margin-left: 15px;
+}
+
+.mr {
+  margin-right: 15px;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  height: 0;
+  display: block;
+  clear: both;
+}

@@ -1,0 +1,15 @@
+.my-sider {
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0;
+        background-color: #001529;
+        h1 {
+            color: #fff;
+            font-size: 20px;
+            width: 120px;
+            margin-left: 10px;
+        }
+    }
+}
