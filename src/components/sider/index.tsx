@@ -82,7 +82,7 @@ const MySider: React.FC = () => {
         }
         
         // 打印父级key到控制台，方便调试
-        console.log('当前路由:', location.pathname, '父级key:', parent);
+        // console.log('当前路由:', location.pathname, '父级key:', parent);
     }, [menuList, location.pathname]); // 依赖菜单数据和路径变化
 
     // 处理点击菜单项的回调函数

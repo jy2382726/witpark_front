@@ -45,3 +45,21 @@ li {
   display: block;
   clear: both;
 }
+
+.search-card {
+  .ant-col {
+    display: flex;
+    p {
+      margin-top: 5px;
+      width: 80px;
+    }
+  }
+}
+
+.tr {
+  text-align: right;
+}
+
+.tc {
+  text-align: center;
+}

@@ -8,6 +8,8 @@ import reportWebVitals from './reportWebVitals';
 import '@ant-design/v5-patch-for-react-19'
 import { Provider } from 'react-redux';
 import { store } from './store';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
 
 
 
@@ -18,7 +20,9 @@ const root = ReactDOM.createRoot(
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <App />
+    <ConfigProvider locale={zhCN}>
+      <App />
+    </ConfigProvider>
   </Provider>
   // </React.StrictMode>
 );

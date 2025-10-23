@@ -390,3 +390,82 @@ Mock.mock('https://www.demo.com/energyData', "get", () => {
         ]
     }
 })
+
+// 随机生成手机号
+Mock.Random.extend({
+    phone: function () {
+      var phonePrefixs = ['13','14','15','16','17','18','19'] // 自己写前缀哈
+      return this.pick(phonePrefixs) + Mock.mock(/\d{9}/) //Number()
+    }
+  })
+
+// 查询租户列表接口
+Mock.mock('https://www.demo.com/users/list', "post", (options: any) => {
+    const { page, pageSize } = JSON.parse(options.body);
+    console.log("查询租户列表接口", page, pageSize);
+    return {
+        code: 200,
+        message: "请求成功",
+        data: Mock.mock({
+            [`list|${pageSize}`]: [
+                {
+                    "id": "@string('number',6)",//随机生成一个六位数字id
+                    "name": "@cname",//随机生成一个人名
+                    "status|1": ["1", "2", "3"],
+                    "phone": '@phone',
+                    "business|1": ['制造业', '互联网', '新媒体', '美业', '新能源', '物流', '电商'],
+                    "email": "@email",
+                    "creditCode": "@string('number',18)",
+                    "industryNo": "@string('number',15)",
+                    "organizationCode": "@string('upper',9)",
+                    "legalPerson": "@cname",
+                },
+            ],
+            total: 78
+        })
+    }
+})
+
+// 删除租户接口
+Mock.mock('https://www.demo.com/users/delete', "delete", (options: any) => {
+    const { id } = JSON.parse(options.body);
+    console.log("删除租户接口", id);
+    return {
+        code: 200,
+        message: "用户数据删除成功",
+        data: {}
+    }
+})
+
+// 批量删除租户接口
+Mock.mock('https://www.demo.com/users/deleteBatch', "delete", (options: any) => {
+    const { ids } = JSON.parse(options.body);
+    console.log("批量删除租户接口", ids);
+    return {
+        code: 200,
+        message: "用户数据批量删除成功",
+        data: {}
+    }
+})
+
+// 添加租户接口
+Mock.mock('https://www.demo.com/users/add', "post", (options: any) => {
+    const data = JSON.parse(options.body);
+    console.log("添加租户接口", data);
+    return {
+        code: 200,
+        message: "用户数据添加成功",
+        data: {}
+    }
+})
+
+// 更新租户接口
+Mock.mock('https://www.demo.com/users/update', "post", (options: any) => {
+    const data = JSON.parse(options.body);
+    console.log("更新租户接口", data);
+    return {
+        code: 200,
+        message: "用户数据更新成功",
+        data: {}
+    }
+})
